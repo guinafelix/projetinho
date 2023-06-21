@@ -2,7 +2,8 @@ import random
 import time
 import matplotlib.pyplot as plt
 from functools import reduce
-plt.show()
+%matplotlib inline
+# plt.show()
 
 # e é o array que armazena o custo de entrada em cada linha
 # a é o array de custo de cada estação
