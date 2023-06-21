@@ -10,7 +10,7 @@
 
 **Considerações**
     
-  #### A questão pede que a implementação seja capaz de retornar o custo da solução ótima e mostrar a solução. Nossas funções são capazes de retornar esses valores, mas optamos por não os mostrar durante a execução dos testes pois iria poluir o console e seria inviável analisar as informações. No entanto, implementamos a função <code>printSolutions</code> que é capaz de informar o custo e a soluções encontradas. Desse modo, pudemos comparar a diferença entre os valores produzidos pelas abordagens dinâmica e gulosa.
+  #### A questão pede que a implementação seja capaz de retornar o custo da solução ótima e mostrar a solução. Nossas funções são capazes de retornar esses valores, mas optamos por não os mostrar durante a execução dos testes pois iria poluir o console e seria inviável analisar as informações. No entanto, implementamos a função <code>printSolutions</code> que é capaz de informar o custo e a solução encontrada. Desse modo, pudemos comparar a diferença entre os valores produzidos pelas abordagens dinâmica e gulosa.
 
 **Conclusões** 
 
