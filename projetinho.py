@@ -2,8 +2,8 @@ import random
 import time
 import matplotlib.pyplot as plt
 from functools import reduce
-# %matplotlib inline
-plt.show()
+%matplotlib inline
+#plt.show()
 
 # e é o array que armazena o custo de entrada em cada linha
 # a é o array de custo de cada estação
@@ -122,8 +122,6 @@ def teste():
       t = [createArray(n, 1), createArray(n, 1)]
       e = createArray(2)
       x = createArray(2)
-      # dynamicTime = fastestWayStation(a, t, e, x)
-      # greedyTime = greedyFastestWayStation(a, t, e, x)
       dynamicArray.append(fastestWayStation(a, t, e, x)[2])
       greedyArray.append(greedyFastestWayStation(a, t, e, x)[2])
     dynamicDict[n] = reduce(lambda x, y: (x+y), dynamicArray, 0)/testes
