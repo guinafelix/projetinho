@@ -157,12 +157,12 @@ def getgreedyY(array):
     greedyY.append(array[key])
 
 
+teste()
 getdynamicX(dynamicDict)
 getgreedyX(greedyDict)
 getdynamicY(dynamicDict)
 getgreedyY(greedyDict)
 
-teste()
 fig = plt.figure()
 ax = fig.add_axes([0,0,2,1])
 ax.plot(dynamicX,dynamicY,color="blue", label = 'Dinâmico')
