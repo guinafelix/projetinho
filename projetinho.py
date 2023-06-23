@@ -188,7 +188,7 @@ def getgreedyY(array, arrayToAppend):
   for key in array.keys():
     arrayToAppend.append(array[key])
 
-TESTE DE TEMPO DE EXECUÇÃO
+# TESTE DE TEMPO DE EXECUÇÃO
 teste()
 getdynamicX(dynamicDict)
 getgreedyX(greedyDict)
