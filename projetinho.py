@@ -2,8 +2,8 @@ import random
 import time
 import matplotlib.pyplot as plt
 from functools import reduce
-%matplotlib inline
-#plt.show()
+# %matplotlib inline
+plt.show()
 
 # e é o array que armazena o custo de entrada em cada linha
 # a é o array de custo de cada estação
@@ -12,7 +12,9 @@ from functools import reduce
 
 dynamicDict = {}
 greedyDict = {}
- 
+dynamicCostDict = {}
+greedyCostDict = {} 
+
 # ALGORITMO DE RESOLUÇÃO UTILIZANDO PROGRAMAÇÃO DINÂMICA
 def fastestWayStation(a, t, e, x):
   startTime = time.time()
@@ -133,29 +135,60 @@ def teste():
   print(dynamicDict)
   print(greedyDict)
 
+def testeCost():
+  testes = random.randint(5, 10)
+  for _ in range(0, testes):
+    n = random.randint(100, 205000)
+    while n in dynamicDict.keys():
+      n = random.randint(100, 205000)
+    c = []
+    d = []
+    dynamicCost = []
+    greedyCost = []
+    for _ in range(0, testes):
+      a = [createArray(n), createArray(n)]
+      t = [createArray(n, 1), createArray(n, 1)]
+      e = createArray(2)
+      x = createArray(2)
+      dynamicCost.append(fastestWayStation(a, t, e, x)[0])
+      greedyCost.append(greedyFastestWayStation(a, t, e, x)[0])
+    dynamicCostDict[n] = reduce(lambda x, y: (x+y), dynamicCost, 0)/testes
+    greedyCostDict[n] = reduce(lambda x, y: (x+y), greedyCost, 0)/testes
+    c.clear()
+    d.clear()
+    dynamicCost.clear()
+    greedyCost.clear()
+  print(dynamicCostDict)
+  print(greedyCostDict)
+
 
 dynamicX = []
 greedyX = []
 dynamicY = []
 greedyY = []
 
-def getdynamicX(array):
+dynamicCostX = []
+greedyCostX = []
+dynamicCostY = []
+greedyCostY = []
+
+def getdynamicX(array, arrayToAppend):
   for key in array.keys():
-    dynamicX.append(key)
+    arrayToAppend.append(key)
 
-def getgreedyX(array):
+def getgreedyX(array, arrayToAppend):
   for key in array.keys():
-    greedyX.append(key)
+    arrayToAppend.append(key)
 
-def getdynamicY(array):
+def getdynamicY(array, arrayToAppend):
   for key in array.keys():
-    dynamicY.append(array[key])
+    arrayToAppend.append(array[key])
 
-def getgreedyY(array):
+def getgreedyY(array, arrayToAppend):
   for key in array.keys():
-    greedyY.append(array[key])
+    arrayToAppend.append(array[key])
 
-
+TESTE DE TEMPO DE EXECUÇÃO
 teste()
 getdynamicX(dynamicDict)
 getgreedyX(greedyDict)
@@ -166,6 +199,19 @@ fig = plt.figure()
 ax = fig.add_axes([0,0,2,1])
 ax.plot(dynamicX,dynamicY,color="blue", label = 'Dinâmico')
 ax.plot(greedyX,greedyY,color="red", label = 'Guloso')
+leg = plt.legend(loc='upper center')
+
+# TESTE DE CUSTO
+testeCost()
+getdynamicX(dynamicCostDict, dynamicCostX)
+getgreedyX(greedyCostDict, greedyCostX)
+getdynamicY(dynamicCostDict, dynamicCostY)
+getgreedyY(greedyCostDict, greedyCostY)
+
+fig = plt.figure()
+ax = fig.add_axes([0,0,2,1])
+ax.plot(dynamicCostX,dynamicCostY,color="blue", label = 'Dinâmico')
+ax.plot(greedyCostX,greedyCostY,color="red", label = 'Guloso')
 leg = plt.legend(loc='upper center')
 
 print(fig)
