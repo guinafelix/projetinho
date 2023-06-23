@@ -190,16 +190,21 @@ def getgreedyY(array, arrayToAppend):
 
 # TESTE DE TEMPO DE EXECUÇÃO
 teste()
-getdynamicX(dynamicDict)
-getgreedyX(greedyDict)
-getdynamicY(dynamicDict)
-getgreedyY(greedyDict)
+getdynamicX(dynamicDict, dynamicX)
+getgreedyX(greedyDict, greedyX)
+getdynamicY(dynamicDict, dynamicY)
+getgreedyY(greedyDict, greedyY)
 
 fig = plt.figure()
 ax = fig.add_axes([0,0,2,1])
 ax.plot(dynamicX,dynamicY,color="blue", label = 'Dinâmico')
 ax.plot(greedyX,greedyY,color="red", label = 'Guloso')
 leg = plt.legend(loc='upper center')
+ax.set_title("Tempo")
+ax.set_xlabel("Número de estações")
+ax.set_ylabel("Tempo de execução")
+
+print(fig)
 
 # TESTE DE CUSTO
 testeCost()
@@ -213,5 +218,8 @@ ax = fig.add_axes([0,0,2,1])
 ax.plot(dynamicCostX,dynamicCostY,color="blue", label = 'Dinâmico')
 ax.plot(greedyCostX,greedyCostY,color="red", label = 'Guloso')
 leg = plt.legend(loc='upper center')
+ax.set_title("Custo da operação")
+ax.set_xlabel("Número de estações")
+ax.set_ylabel("Custo")
 
 print(fig)
